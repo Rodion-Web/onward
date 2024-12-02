@@ -115,7 +115,7 @@ h2 {
 .application-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  /* padding: 0 15px; */
 }
 
 /* Блок о проекте */
@@ -338,9 +338,10 @@ h2 {
 
 .form-row {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .form-group {
@@ -451,7 +452,7 @@ h2 {
 /* Адаптивность формы */
 @media (max-width: 1200px) {
   .application-container {
-    padding: 0 20px;
+    /* padding: 0 20px; */
   }
 
   .application-form {
