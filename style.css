@@ -7,7 +7,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* header {
+header {
   position: fixed;
   top: 0;
   left: 0;
@@ -30,7 +30,24 @@ header .container {
 
 header .logo img {
   height: 50px;
-} */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+nav a:hover {
+  background-color: rgba(0, 51, 153, 0.8);
+  border-radius: 5px;
+}
 
 /* Стили для секции hero */
 .hero {
@@ -72,24 +89,33 @@ header .logo img {
 }
 
 /* Стили для секций с текстом */
-.section {
-  padding: 80px 20px;
+section {
+  padding: 40px 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9; /* Светлый фон для отделения */
+  border-radius: 10px; /* Закругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+}
+
+section:nth-child(odd) {
+  background-color: #ffffff; /* Чередование фона */
+}
+
+h2 {
   text-align: center;
-}
-
-.section:nth-child(even) {
-  background-color: #f4f4f4;
-}
-
-.section h2 {
-  font-size: 2.5rem;
   margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+  border-bottom: 2px solid #007bff; /* Линия под заголовком */
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.section p {
-  font-size: 1.2rem;
-  max-width: 800px;
+.container,
+.application-container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* Блок о проекте */
@@ -148,71 +174,116 @@ header .logo img {
 
 /* Стили для блока с отзывами */
 .testimonials-section {
-  padding: 80px 20px;
-  background-color: #f4f4f4;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
   text-align: center;
 }
 
-.testimonials-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #333;
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto; /* Горизонтальная прокрутка */
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+
+  /* Добавляем стили для скрытия стандартных скроллов (опционально) */
+  scrollbar-width: thin; /* Для Firefox */
+  scrollbar-color: #3498db #f0f0f0; /* Цвет для Firefox */
 }
 
-.testimonials-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Кастомный горизонтальный скролл */
+.testimonial-slider::-webkit-scrollbar {
+  height: 8px; /* Высота горизонтального скроллбара */
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb {
+  background: #3498db; /* Цвет ползунка */
+  border-radius: 4px; /* Закругленные углы */
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb:hover {
+  background: #2980b9; /* Цвет ползунка при наведении */
+}
+
+.testimonial-slider::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Цвет дорожки */
+  border-radius: 4px; /* Закругленные углы */
 }
 
 .testimonial-card {
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
+  flex: 0 0 calc(33.333% - 20px); /* Показывает три карточки */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Скрывает выступающие части */
+  scroll-snap-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+/* Стили для кастомного скроллбара */
+.testimonial-card::-webkit-scrollbar {
+  width: 8px; /* Ширина скроллбара */
 }
 
+.testimonial-card::-webkit-scrollbar-thumb {
+  background: #3498db; /* Цвет ползунка */
+  border-radius: 4px; /* Закругленные углы */
+}
+
+.testimonial-card::-webkit-scrollbar-thumb:hover {
+  background: #2980b9; /* Цвет ползунка при наведении */
+}
+
+.testimonial-card::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Цвет фона дорожки скроллбара */
+  border-radius: 4px; /* Закругленные углы */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Фото на всю ширину */
 .testimonial-card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-bottom: 3px solid #ddd;
+  height: auto;
+  display: block;
 }
 
+/* Увеличенный текст */
 .testimonial-text {
   padding: 20px;
+  text-align: left; /* Выравниваем текст слева */
 }
 
 .testimonial-text p {
-  font-size: 1.1rem;
+  font-size: 16px; /* Увеличенный шрифт для описания */
   color: #555;
-  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 .testimonial-text h3 {
-  font-size: 1.3rem;
+  font-size: 18px; /* Увеличенный заголовок */
   color: #333;
-  margin-bottom: 5px;
+  margin-top: 15px;
 }
 
-.testimonial-text p:last-child {
-  font-size: 1rem;
-  color: #888;
-}
-
-/* Адаптивность для отзывов */
+/* Адаптивность для мобильных */
 @media (max-width: 768px) {
-  .testimonials-container {
-    grid-template-columns: 1fr;
+  .testimonial-card {
+    flex: 0 0 calc(80% - 20px); /* Показывает одну карточку на мобильных */
+    height: 400px;
+    overflow-y: scroll;
+  }
+
+  .testimonial-text p {
+    font-size: 14px;
+  }
+
+  .testimonial-text h3 {
+    font-size: 16px;
   }
 }
 
@@ -327,6 +398,55 @@ header .logo img {
     transform: translateY(0);
   }
 }
+/* Стили для блока Контакты */
+.contact-section {
+  padding: 40px 20px;
+  background-color: #f0f8ff; /* Светло-голубой фон */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #007bff; /* Синий для акцента */
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.contact-item {
+  flex: 1 1 300px;
+  max-width: 300px;
+  background: #ffffff; /* Белый фон карточек */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для карточек */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-item i {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.contact-item p {
+  font-size: 16px;
+  color: #333;
+}
 
 /* Адаптивность формы */
 @media (max-width: 1200px) {
@@ -360,7 +480,10 @@ header .logo img {
     width: 90%;
     padding: 30px;
   }
-
+  .form-group input {
+    width: 100%;
+    max-width: 550px;
+  }
   .form-row {
     flex-direction: column;
   }
@@ -391,8 +514,12 @@ header .logo img {
   .application-form {
     width: 100%;
     padding: 20px;
+    max-width: 300px;
   }
-
+  .form-group input {
+    width: 100%;
+    max-width: 270px;
+  }
   .application-form h3 {
     font-size: 1.1rem;
   }
