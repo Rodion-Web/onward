@@ -81,7 +81,7 @@ nav a:hover {
   background: linear-gradient(#f7ff91, #ffdadc, #db6a73);
 }
 /* Заголовки */
-h1 {
+h3 {
   font-family: "Merriweather", serif;
   font-size: 40px;
   letter-spacing: 1px;
