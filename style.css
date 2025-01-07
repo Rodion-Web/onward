@@ -49,6 +49,75 @@ nav a:hover {
   border-radius: 5px;
 }
 
+.about-project {
+  background: linear-gradient(#ffc786, #db6a73, #ffdadc);
+}
+
+.one {
+  background: linear-gradient(#ffdadc, #f7ff91);
+}
+
+.one h1 {
+  color: #080000;
+}
+
+.two h1 {
+  color: #3e3e3e;
+}
+
+.three h1 {
+  color: #ffffff;
+}
+
+.two {
+  background: linear-gradient(#db6a73, #abfffc);
+}
+
+.three {
+  background: linear-gradient(#e7cc47, #6a11cb);
+}
+
+.condition {
+  background: linear-gradient(#f7ff91, #ffdadc, #db6a73);
+}
+/* Заголовки */
+h1 {
+  font-family: "Merriweather", serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  max-width: 80%;
+  /* width: 80%; */
+  position: relative;
+  display: inline-block;
+}
+.call {
+  display: table;
+  width: 100%;
+  max-width: 1940px;
+  margin: 15px auto;
+  letter-spacing: 2px;
+  text-align: center;
+}
+/* .d14 h1:before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  left: 6%;
+  width: 50px;
+  height: 30px;
+  border-top: 5px solid #ffffff;
+  border-left: 5px solid #ffffff;
+}
+.d14 h1:after {
+  content: "";
+  position: absolute;
+  bottom: -6%;
+  right: 6%;
+  width: 50px;
+  height: 30px;
+  border-bottom: 5px solid #ffffff;
+  border-right: 5px solid #ffffff;
+} */
 /* Стили для секции hero */
 .hero {
   background: url("img/bg-fon.jpg") no-repeat center center/cover;
@@ -91,13 +160,11 @@ nav a:hover {
 /* Стили для секций с текстом */
 section {
   padding: 40px 20px;
-  margin: 20px 0;
   background-color: #f9f9f9; /* Светлый фон для отделения */
-  border-radius: 10px; /* Закругленные углы */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+  /* border-radius: 10px; /* Закругленные углы */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Тень для объема */
 }
-
-section:nth-child(odd) {
+*/ section:nth-child(odd) {
   background-color: #ffffff; /* Чередование фона */
 }
 
@@ -106,7 +173,7 @@ h2 {
   margin-bottom: 20px;
   font-size: 28px;
   color: #333;
-  border-bottom: 2px solid #007bff; /* Линия под заголовком */
+  border-bottom: 2px solid #ffffff; /* Линия под заголовком */
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -122,7 +189,6 @@ h2 {
 .project-section {
   padding: 80px 20px;
   text-align: center;
-  background-color: #f4f4f4;
 }
 
 .project-section h2 {
@@ -138,44 +204,95 @@ h2 {
   margin: 0 auto;
 }
 
+/* Стили для карточек проекта */
 .project-card {
-  background-color: white;
+  background-color: #f9f9f9;
   border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 .project-card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 200px; /* Устанавливаем одинаковую высоту для всех картинок */
+  object-fit: cover; /* Сохраняем пропорции и обрезаем лишнее */
+  display: block;
 }
 
 .card-text {
   padding: 20px;
-  text-align: left;
+  color: #333;
+  font-family: "Arial", sans-serif;
 }
 
 .card-text h3 {
-  font-size: 1.5rem;
+  font-size: 1.8em;
+  color: #007acc;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .card-text p {
-  font-size: 1.1rem;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.card-text ul {
+  padding: 0;
+  margin-bottom: 15px;
+  list-style: none; /* Убираем стандартные маркеры */
+  border: 1px solid #ddd; /* Добавляем рамку для списка */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для списка */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Анимация для рамок */
+}
+
+.card-text ul:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+  transform: translateY(-2px); /* Поднимаем список при наведении */
+}
+
+.card-text ul li {
+  position: relative;
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 0.95em;
+  line-height: 1.5;
   color: #555;
+  border-bottom: 1px solid #ddd; /* Разделяем элементы линии */
+}
+
+.card-text ul li:last-child {
+  border-bottom: none; /* Убираем нижнюю границу у последнего элемента */
+}
+
+.card-text ul li::before {
+  content: "\2022"; /* Используем символ кружка */
+  color: #007acc;
+  font-size: 1.2em;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.card-text hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
 }
 
 /* Стили для блока с отзывами */
 .testimonials-section {
   padding: 40px 20px;
-  background-color: #f9f9f9;
+  background: linear-gradient(#abfffc, #ffdadc, #e7cc47);
   text-align: center;
 }
 
@@ -215,7 +332,6 @@ h2 {
   flex: 0 0 calc(33.333% - 20px); /* Показывает три карточки */
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Скрывает выступающие части */
   scroll-snap-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -270,6 +386,56 @@ h2 {
   margin-top: 15px;
 }
 
+/* Стили для блока Контакты */
+.contact-section {
+  padding: 40px 20px;
+  background: linear-gradient(#2772fa, #db6a73);
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255); /* Синий для акцента */
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.contact-item {
+  flex: 1 1 300px;
+  max-width: 300px;
+  background: #ffffff; /* Белый фон карточек */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для карточек */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-item i {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.contact-item p {
+  font-size: 16px;
+  color: #333;
+}
+
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .testimonial-card {
@@ -290,7 +456,7 @@ h2 {
 /* Стиль для секции заявки */
 .application-section {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(#6a11cb, #2575fc);
   color: white;
   text-align: center;
 }
@@ -398,55 +564,6 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
-}
-/* Стили для блока Контакты */
-.contact-section {
-  padding: 40px 20px;
-  background-color: #f0f8ff; /* Светло-голубой фон */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
-  text-align: center;
-}
-
-.contact-section h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #007bff; /* Синий для акцента */
-}
-
-.contact-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.contact-item {
-  flex: 1 1 300px;
-  max-width: 300px;
-  background: #ffffff; /* Белый фон карточек */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для карточек */
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
-}
-
-.contact-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.contact-item i {
-  font-size: 24px;
-  color: #007bff;
-  margin-bottom: 10px;
-}
-
-.contact-item p {
-  font-size: 16px;
-  color: #333;
 }
 
 /* Адаптивность формы */
