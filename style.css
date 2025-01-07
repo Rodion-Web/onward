@@ -79,7 +79,7 @@ nav a:hover {
 /* Заголовки */
 h1 {
   font-family: "Merriweather", serif;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: 1px;
   max-width: 80%;
   /* width: 80%; */
@@ -454,7 +454,6 @@ h2 {
 
 /* Стиль для секции заявки */
 .application-section {
-  padding: 100px 20px;
   background: linear-gradient(#6a11cb, #2575fc);
   color: white;
   text-align: center;
