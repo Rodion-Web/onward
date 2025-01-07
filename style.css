@@ -131,6 +131,7 @@ h1 {
   font-size: 4rem;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
   animation: fadeIn 2s ease-in-out;
+  text-transform: uppercase;
 }
 
 .hero p {
@@ -683,7 +684,7 @@ h2 {
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
   }
 
   .hero p {
@@ -705,7 +706,7 @@ h2 {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .hero p {
