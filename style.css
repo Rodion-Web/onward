@@ -53,10 +53,13 @@ nav a:hover {
   background: linear-gradient(#ffc786, #db6a73, #ffdadc);
 }
 
-.one {
-  background: linear-gradient(#ffdadc, #f7ff91);
+.condition {
+  background: linear-gradient(#ffdadc, #ffdadc, #f6fbcb);
 }
 
+.waiting {
+  background: linear-gradient(#f6fbcb, #ffdadc, #abfffc);
+}
 .one h1 {
   color: #080000;
 }
@@ -69,21 +72,14 @@ nav a:hover {
   color: #ffffff;
 }
 
-.two {
-  background: linear-gradient(#db6a73, #abfffc);
-}
-
 .three {
   background: linear-gradient(#e7cc47, #6a11cb);
 }
 
-.condition {
-  background: linear-gradient(#f7ff91, #ffdadc, #db6a73);
-}
 /* Заголовки */
-h3 {
+h1 {
   font-family: "Merriweather", serif;
-  font-size: 40px;
+  font-size: 30px;
   letter-spacing: 1px;
   max-width: 80%;
   /* width: 80%; */
@@ -186,6 +182,10 @@ h2 {
 }
 
 /* Блок о проекте */
+.waiting .project-container {
+  display: flex;
+  justify-content: center;
+}
 .project-section {
   padding: 80px 20px;
   text-align: center;
@@ -219,7 +219,7 @@ h2 {
 
 .project-card img {
   width: 100%;
-  height: 200px; /* Устанавливаем одинаковую высоту для всех картинок */
+  height: 400px; /* Устанавливаем одинаковую высоту для всех картинок */
   object-fit: cover; /* Сохраняем пропорции и обрезаем лишнее */
   display: block;
 }
