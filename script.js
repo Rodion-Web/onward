@@ -66,3 +66,35 @@ document.querySelector("#photo-prev-btn")?.addEventListener("click", () => {
 document.querySelector("#photo-next-btn")?.addEventListener("click", () => {
   photoSlider.scrollLeft += photoSlider.offsetWidth;
 });
+
+// Форма отправки
+// Инициализация EmailJS
+(function () {
+  emailjs.init("HaJUZiFMfFkdulz9E"); // Замените на ваш User ID из EmailJS
+})();
+
+// Обработка отправки формы
+document
+  .getElementById("application-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Сбор данных формы
+    var formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      age: document.getElementById("age").value,
+      city: document.getElementById("city").value,
+    };
+
+    // Отправка данных через EmailJS
+    emailjs.send("service_wmpraxy", "template_sl99e6e", formData).then(
+      function (response) {
+        alert("Заявка отправлена!");
+        document.getElementById("application-form").reset(); // Очистка формы
+      },
+      function (error) {
+        alert("Произошла ошибка: " + error.text);
+      }
+    );
+  });
