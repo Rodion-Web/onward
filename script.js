@@ -56,47 +56,16 @@ nextBtn?.addEventListener("click", () => scrollTestimonials(1));
     console.error("Форма не найдена.");
   }
 })();
+// Плавность прокрутки
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+for (let smoothLink of smoothLinks) {
+  smoothLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    const id = smoothLink.getAttribute("href");
 
-// Стрелка для прокрутки вниз
-const scrollDownBtn = document.getElementById("scrollDown");
-const firstBlock = document.querySelector(".condition"); // Первый блок на странице
-
-// Прокрутка вниз при клике на стрелку
-scrollDownBtn.addEventListener("click", () => {
-  window.scrollBy({
-    top: window.innerHeight, // Прокрутить на высоту экрана
-    behavior: "smooth", // Плавная прокрутка
+    document.querySelector(id).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   });
-});
-
-// Скрыть стрелку после прокрутки до первого блока
-window.addEventListener("scroll", () => {
-  if (
-    firstBlock &&
-    window.scrollY >= firstBlock.offsetTop - window.innerHeight
-  ) {
-    scrollDownBtn.classList.add("hidden"); // Добавляем класс для скрытия стрелки
-  } else {
-    scrollDownBtn.classList.remove("hidden"); // Убираем класс, если не прокручено до первого блока
-  }
-});
-
-// Стрелка для прокрутки наверх
-const scrollToTopBtn = document.getElementById("scrollToTop");
-
-// Показать/скрыть кнопку в зависимости от прокрутки
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.style.display = "block"; // Показываем кнопку
-  } else {
-    scrollToTopBtn.style.display = "none"; // Скрываем кнопку
-  }
-});
-
-// Прокрутка наверх при клике
-scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth", // Плавная прокрутка
-  });
-});
+}

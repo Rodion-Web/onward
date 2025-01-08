@@ -110,48 +110,14 @@ h1 {
   margin: 20px 0;
 }
 
-/* Стрелка прокрутки вниз */
-.scroll-down {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 5rem;
-  cursor: pointer;
-  z-index: 1000;
-  transition: transform 0.3s ease, color 0.3s ease;
-  animation: moveDown 1.5s ease-in-out infinite; /* Анимация движения вниз */
-}
-
-.scroll-down:hover {
-  color: #2980b9; /* Цвет при наведении */
-  transform: translateX(-50%) scale(1.2); /* Увеличиваем размер при наведении */
-}
-
-.scroll-down.hidden {
-  opacity: 0; /* Стрелка скрыта */
-  pointer-events: none; /* Отключаем события на стрелке */
-}
-
-.arrow-icon {
-  display: inline-block;
-  line-height: 1;
-}
-
-/* Анимация для движения стрелки вниз */
-@keyframes moveDown {
-  0% {
-    transform: translateY(0); /* Начальная позиция */
-  }
-  50% {
-    transform: translateY(10px); /* Смещаем вниз */
-  }
-  100% {
-    transform: translateY(0); /* Возвращаем в исходную позицию */
-  }
+.hero .button {
+  background-color: #b65361;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 section {
@@ -238,6 +204,7 @@ h2 {
   font-size: 1em;
   line-height: 1.6;
   margin-bottom: 15px;
+  color: #770707;
 }
 
 .card-text ul {
@@ -251,6 +218,19 @@ h2 {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+.why {
+  padding: 15px;
+  margin-bottom: 15px;
+  list-style: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.why p {
+  color: #555;
+}
 .card-text ul:hover {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
@@ -544,40 +524,6 @@ h2 {
   justify-content: center;
 }
 
-/* Стрелка для прокрутки наверх*/
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #3498db; /* Голубой фон */
-  border: none;
-  color: white;
-  font-size: 2.5rem; /* Увеличим размер стрелки */
-  width: 60px; /* Увеличим размер кнопки */
-  height: 60px; /* Увеличим размер кнопки */
-  border-radius: 50%; /* Круглый фон */
-  display: none;
-  z-index: 1000;
-  cursor: pointer;
-  text-align: center;
-  line-height: 60px; /* Центрируем стрелку */
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.scroll-to-top:hover {
-  background-color: #2980b9; /* Более темный фон при наведении */
-  transform: scale(1.2); /* Увеличиваем размер при наведении */
-}
-
-.scroll-to-top:active {
-  transform: scale(1); /* Восстанавливаем размер при клике */
-}
-
-.arrow-icon {
-  display: inline-block;
-  line-height: 1;
-}
-
 @media (max-width: 1200px) {
   header .container {
     flex-direction: column;
@@ -711,6 +657,7 @@ h2 {
     margin-top: 0;
     font-size: 1.2rem;
     padding: 1px 6px;
+    opacity: 0.5;
   }
 
   .prev-btn {
