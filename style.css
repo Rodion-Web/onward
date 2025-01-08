@@ -284,70 +284,35 @@ h2 {
 }
 
 /* Стили для блока с отзывами */
+/* Общие стили для секции с отзывами */
 .testimonials-section {
   padding: 40px 20px;
   background: linear-gradient(#abfffc, #ffdadc, #e7cc47);
   text-align: center;
+  position: relative;
+}
+
+.testimonial-slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonial-slider {
   display: flex;
-  overflow-x: auto; /* Горизонтальная прокрутка */
-  scroll-snap-type: x mandatory;
   gap: 20px;
-  padding: 20px 0;
-  scroll-behavior: smooth;
-
-  /* Добавляем стили для скрытия стандартных скроллов (опционально) */
-  scrollbar-width: thin; /* Для Firefox */
-  scrollbar-color: #3498db #f0f0f0; /* Цвет для Firefox */
-}
-
-/* Кастомный горизонтальный скролл */
-.testimonial-slider::-webkit-scrollbar {
-  height: 8px; /* Высота горизонтального скроллбара */
-}
-
-.testimonial-slider::-webkit-scrollbar-thumb {
-  background: #3498db; /* Цвет ползунка */
-  border-radius: 4px; /* Закругленные углы */
-}
-
-.testimonial-slider::-webkit-scrollbar-thumb:hover {
-  background: #2980b9; /* Цвет ползунка при наведении */
-}
-
-.testimonial-slider::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Цвет дорожки */
-  border-radius: 4px; /* Закругленные углы */
+  overflow: hidden; /* Убираем горизонтальный скролл */
+  width: 80%; /* Ширина слайдера */
 }
 
 .testimonial-card {
-  flex: 0 0 calc(33.333% - 20px); /* Показывает три карточки */
+  flex: 0 0 calc(33.333% - 20px); /* Показывает 3 карточки */
   background: #fff;
   border-radius: 8px;
-  overflow: hidden; /* Скрывает выступающие части */
-  scroll-snap-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Стили для кастомного скроллбара */
-.testimonial-card::-webkit-scrollbar {
-  width: 8px; /* Ширина скроллбара */
-}
-
-.testimonial-card::-webkit-scrollbar-thumb {
-  background: #3498db; /* Цвет ползунка */
-  border-radius: 4px; /* Закругленные углы */
-}
-
-.testimonial-card::-webkit-scrollbar-thumb:hover {
-  background: #2980b9; /* Цвет ползунка при наведении */
-}
-
-.testimonial-card::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Цвет фона дорожки скроллбара */
-  border-radius: 4px; /* Закругленные углы */
 }
 
 .testimonial-card:hover {
@@ -355,29 +320,102 @@ h2 {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Фото на всю ширину */
+/* Фото на всю ширину карточки */
 .testimonial-card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Увеличенный текст */
 .testimonial-text {
   padding: 20px;
-  text-align: left; /* Выравниваем текст слева */
+  text-align: left;
 }
 
-.testimonial-text p {
-  font-size: 16px; /* Увеличенный шрифт для описания */
-  color: #555;
-  line-height: 1.6;
+/* Стили для стрелок */
+.slider-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
-.testimonial-text h3 {
-  font-size: 18px; /* Увеличенный заголовок */
-  color: #333;
-  margin-top: 15px;
+.slider-btn:hover {
+  background: #2980b9;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .testimonial-slider {
+    width: 100%; /* Для мобильных слайдер занимает всю ширину */
+  }
+
+  .testimonial-card {
+    flex: 0 0 calc(80% - 20px); /* Показывает 1 карточку */
+  }
+}
+
+/* Слайдер с фотографиями */
+.photo-slider-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.photo-slider {
+  display: flex;
+  width: 25%;
+  height: 25%;
+  animation: slide 80s infinite linear; /* Автоматическая прокрутка */
+}
+
+.photo-slider img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Фото на всю высоту блока */
+}
+
+/* Анимация для автоматической прокрутки */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-200%);
+  }
+  75% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Скрытие горизонтального скроллбара */
+.photo-slider::-webkit-scrollbar {
+  display: none;
 }
 
 /* Стили для блока Контакты */
@@ -646,7 +684,12 @@ h2 {
     padding: 10px 20px;
     font-size: 1rem;
   }
+  .photo-slider {
+    width: 100%;
+    height: 100%;
+  }
 }
+
 @media (max-width: 1200px) {
   header .container {
     flex-direction: column;
