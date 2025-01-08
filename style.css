@@ -310,6 +310,7 @@ h2 {
   text-align: left;
 }
 
+/* Стандартные стили для стрелок */
 .slider-btn {
   background: #3498db;
   color: white;
@@ -337,6 +338,8 @@ h2 {
 .next-btn {
   right: 10px;
 }
+
+/* Для мобильных устройств */
 
 .photo-slider-section {
   width: 100%;
@@ -660,11 +663,7 @@ h2 {
     opacity: 0.5;
   }
   .prev-btn {
-    left: 10px;
-  }
-
-  .next-btn {
-    right: 10px;
+    margin-left: 70%;
   }
 }
 
