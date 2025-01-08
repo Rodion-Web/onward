@@ -51,9 +51,9 @@ testimonialSlider.addEventListener("mouseout", () => {
 // Пример других функций (если они нужны для меню или других слайдеров)
 
 // Тоггл для бургер-меню
-document.getElementById("burger-menu").addEventListener("click", function () {
-  document.querySelector(".nav-links").classList.toggle("active");
-});
+// document.getElementById("burger-menu").addEventListener("click", function () {
+//   document.querySelector(".nav-links").classList.toggle("active");
+// });
 
 // Управление другим слайдером (пример для секции с фото)
 const photoSlider = document.querySelector(".photo-slider");
@@ -70,31 +70,23 @@ document.querySelector("#photo-next-btn")?.addEventListener("click", () => {
 // Форма отправки
 // Инициализация EmailJS
 (function () {
-  emailjs.init("HaJUZiFMfFkdulz9E"); // Замените на ваш User ID из EmailJS
+  // Initialize EmailJS
+  emailjs.init("HaJUZiFMfFkdulz9E");
+
+  // Add event listener to the form
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Send form data via EmailJS
+      emailjs.sendForm("service_wmpraxy", "template_sl99e6e", this).then(
+        function (response) {
+          alert("Твоя заявка принята! С тобой обязательно свяжутся!");
+        },
+        function (error) {
+          alert("Упс..Ошибка отправки. Попробуй еще раз.");
+        }
+      );
+    });
 })();
-
-// Обработка отправки формы
-document
-  .getElementById("application-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Сбор данных формы
-    var formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      age: document.getElementById("age").value,
-      city: document.getElementById("city").value,
-    };
-
-    // Отправка данных через EmailJS
-    emailjs.send("service_wmpraxy", "template_sl99e6e", formData).then(
-      function (response) {
-        alert("Заявка отправлена!");
-        document.getElementById("application-form").reset(); // Очистка формы
-      },
-      function (error) {
-        alert("Произошла ошибка: " + error.text);
-      }
-    );
-  });
