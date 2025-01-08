@@ -49,17 +49,10 @@ nav a:hover {
   border-radius: 5px;
 }
 
-.about-project {
-  background: linear-gradient(#ffc786, #db6a73, #ffdadc);
-}
-
 .condition {
-  background: linear-gradient(#ffdadc, #ffdadc, #f6fbcb);
+  background: linear-gradient(#ffdadc, #ffdadc, #abfffc);
 }
 
-.waiting {
-  background: linear-gradient(#f6fbcb, #ffdadc, #abfffc);
-}
 .one h1 {
   color: #080000;
 }
@@ -198,10 +191,11 @@ h2 {
 
 .project-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  max-width: 1200px;
+  max-width: 1940px;
   margin: 0 auto;
+  width: 100%;
 }
 
 /* Стили для карточек проекта */
