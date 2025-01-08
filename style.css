@@ -1,4 +1,3 @@
-/* Общие стили для всего сайта */
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
@@ -69,16 +68,15 @@ nav a:hover {
   background: linear-gradient(#e7cc47, #6a11cb);
 }
 
-/* Заголовки */
 h1 {
   font-family: "Merriweather", serif;
   font-size: 40px;
   letter-spacing: 1px;
   max-width: 80%;
-  /* width: 80%; */
   position: relative;
   display: inline-block;
 }
+
 .call {
   display: table;
   width: 100%;
@@ -87,27 +85,7 @@ h1 {
   letter-spacing: 2px;
   text-align: center;
 }
-/* .d14 h1:before {
-  content: "";
-  position: absolute;
-  top: -15%;
-  left: 6%;
-  width: 50px;
-  height: 30px;
-  border-top: 5px solid #ffffff;
-  border-left: 5px solid #ffffff;
-}
-.d14 h1:after {
-  content: "";
-  position: absolute;
-  bottom: -6%;
-  right: 6%;
-  width: 50px;
-  height: 30px;
-  border-bottom: 5px solid #ffffff;
-  border-right: 5px solid #ffffff;
-} */
-/* Стили для секции hero */
+
 .hero {
   background: url("img/bg-fon.jpg") no-repeat center center/cover;
   height: 100vh;
@@ -132,30 +110,57 @@ h1 {
   margin: 20px 0;
 }
 
-.hero .button {
-  background-color: #ff4500;
-  color: white;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1.5em;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+/* Стрелка прокрутки вниз */
+.scroll-down {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 5rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease, color 0.3s ease;
+  animation: moveDown 1.5s ease-in-out infinite; /* Анимация движения вниз */
 }
 
-.hero .button:hover {
-  transform: scale(1.1);
-  background-color: #ff6347;
+.scroll-down:hover {
+  color: #2980b9; /* Цвет при наведении */
+  transform: translateX(-50%) scale(1.2); /* Увеличиваем размер при наведении */
 }
 
-/* Стили для секций с текстом */
+.scroll-down.hidden {
+  opacity: 0; /* Стрелка скрыта */
+  pointer-events: none; /* Отключаем события на стрелке */
+}
+
+.arrow-icon {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Анимация для движения стрелки вниз */
+@keyframes moveDown {
+  0% {
+    transform: translateY(0); /* Начальная позиция */
+  }
+  50% {
+    transform: translateY(10px); /* Смещаем вниз */
+  }
+  100% {
+    transform: translateY(0); /* Возвращаем в исходную позицию */
+  }
+}
+
 section {
   padding: 20px 20px;
-  background-color: #f9f9f9; /* Светлый фон для отделения */
-  /* border-radius: 10px; /* Закругленные углы */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Тень для объема */
+  background-color: #f9f9f9;
 }
+
 */ section:nth-child(odd) {
-  background-color: #ffffff; /* Чередование фона */
+  background-color: #ffffff;
 }
 
 h2 {
@@ -163,7 +168,6 @@ h2 {
   margin-bottom: 20px;
   font-size: 28px;
   color: #333;
-  border-bottom: 2px solid #ffffff; /* Линия под заголовком */
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -172,14 +176,13 @@ h2 {
 .application-container {
   max-width: 1200px;
   margin: 0 auto;
-  /* padding: 0 15px; */
 }
 
-/* Блок о проекте */
 .waiting .project-container {
   display: flex;
   justify-content: center;
 }
+
 .project-section {
   text-align: center;
 }
@@ -198,7 +201,6 @@ h2 {
   width: 100%;
 }
 
-/* Стили для карточек проекта */
 .project-card {
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -213,8 +215,8 @@ h2 {
 
 .project-card img {
   width: 100%;
-  height: 400px; /* Устанавливаем одинаковую высоту для всех картинок */
-  object-fit: cover; /* Сохраняем пропорции и обрезаем лишнее */
+  height: 400px;
+  object-fit: cover;
   display: block;
 }
 
@@ -241,17 +243,17 @@ h2 {
 .card-text ul {
   padding: 0;
   margin-bottom: 15px;
-  list-style: none; /* Убираем стандартные маркеры */
-  border: 1px solid #ddd; /* Добавляем рамку для списка */
+  list-style: none;
+  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для списка */
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Анимация для рамок */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card-text ul:hover {
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
-  transform: translateY(-2px); /* Поднимаем список при наведении */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .card-text ul li {
@@ -261,15 +263,15 @@ h2 {
   font-size: 0.95em;
   line-height: 1.5;
   color: #555;
-  border-bottom: 1px solid #ddd; /* Разделяем элементы линии */
+  border-bottom: 1px solid #ddd;
 }
 
 .card-text ul li:last-child {
-  border-bottom: none; /* Убираем нижнюю границу у последнего элемента */
+  border-bottom: none;
 }
 
 .card-text ul li::before {
-  content: "\2022"; /* Используем символ кружка */
+  content: "\2022";
   color: #007acc;
   font-size: 1.2em;
   margin-right: 10px;
@@ -283,8 +285,6 @@ h2 {
   margin: 20px 0;
 }
 
-/* Стили для блока с отзывами */
-/* Общие стили для секции с отзывами */
 .testimonials-section {
   padding: 40px 20px;
   background: linear-gradient(#abfffc, #ffdadc, #e7cc47);
@@ -302,17 +302,16 @@ h2 {
 .testimonial-slider {
   display: flex;
   gap: 20px;
-  overflow: hidden; /* Убираем горизонтальный скролл */
-  width: 80%; /* Ширина слайдера */
+  overflow: hidden;
+  width: 80%;
+  scroll-behavior: smooth;
 }
 
 .testimonial-card {
-  flex: 0 0 calc(33.333% - 20px); /* Показывает 3 карточки */
+  flex: 0 0 calc(33.333% - 20px);
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial-card:hover {
@@ -320,7 +319,6 @@ h2 {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Фото на всю ширину карточки */
 .testimonial-card img {
   width: 100%;
   height: auto;
@@ -332,7 +330,6 @@ h2 {
   text-align: left;
 }
 
-/* Стили для стрелок */
 .slider-btn {
   background: #3498db;
   color: white;
@@ -361,18 +358,6 @@ h2 {
   right: 10px;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  .testimonial-slider {
-    width: 100%; /* Для мобильных слайдер занимает всю ширину */
-  }
-
-  .testimonial-card {
-    flex: 0 0 calc(80% - 20px); /* Показывает 1 карточку */
-  }
-}
-
-/* Слайдер с фотографиями */
 .photo-slider-section {
   width: 100%;
   overflow: hidden;
@@ -384,52 +369,30 @@ h2 {
   display: flex;
   width: 25%;
   height: 25%;
-  animation: slide 80s infinite linear; /* Автоматическая прокрутка */
+  animation: slide 80s infinite linear;
 }
 
 .photo-slider img {
   flex: 0 0 100%;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Фото на всю высоту блока */
+  object-fit: cover;
 }
 
-/* Анимация для автоматической прокрутки */
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(-200%);
-  }
-  75% {
-    transform: translateX(-300%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Скрытие горизонтального скроллбара */
 .photo-slider::-webkit-scrollbar {
   display: none;
 }
 
-/* Стили для блока Контакты */
 .contact-section {
   padding: 40px 20px;
   background: linear-gradient(#2772fa, #db6a73);
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   text-align: center;
 }
 
 .contact-section h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: rgb(255, 255, 255); /* Синий для акцента */
+  color: rgb(255, 255, 255);
 }
 
 .contact-info {
@@ -443,12 +406,12 @@ h2 {
 .contact-item {
   flex: 1 1 300px;
   max-width: 300px;
-  background: #ffffff; /* Белый фон карточек */
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для карточек */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-item:hover {
@@ -467,24 +430,6 @@ h2 {
   color: #333;
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-  .testimonial-card {
-    flex: 0 0 calc(80% - 20px); /* Показывает одну карточку на мобильных */
-    height: 400px;
-    overflow-y: scroll;
-  }
-
-  .testimonial-text p {
-    font-size: 14px;
-  }
-
-  .testimonial-text h3 {
-    font-size: 16px;
-  }
-}
-
-/* Стиль для секции заявки */
 .application-section {
   background: linear-gradient(#6a11cb, #2575fc);
   color: white;
@@ -495,6 +440,7 @@ h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: bold;
+  color: #ffffff;
 }
 
 .application-container {
@@ -502,7 +448,6 @@ h2 {
   margin: 0 auto;
 }
 
-/* Формы заявки */
 .application-form {
   background-color: white;
   padding: 40px;
@@ -585,21 +530,78 @@ h2 {
   transform: scale(1.05);
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.thank-you-message {
+  display: none;
+  text-align: center;
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  transform: rotateY(180deg);
+  animation: flipIn 1s forwards;
+  max-width: 1500px;
+  justify-content: center;
 }
 
-/* Адаптивность формы */
+/* Стрелка для прокрутки наверх*/
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #3498db; /* Голубой фон */
+  border: none;
+  color: white;
+  font-size: 2.5rem; /* Увеличим размер стрелки */
+  width: 60px; /* Увеличим размер кнопки */
+  height: 60px; /* Увеличим размер кнопки */
+  border-radius: 50%; /* Круглый фон */
+  display: none;
+  z-index: 1000;
+  cursor: pointer;
+  text-align: center;
+  line-height: 60px; /* Центрируем стрелку */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #2980b9; /* Более темный фон при наведении */
+  transform: scale(1.2); /* Увеличиваем размер при наведении */
+}
+
+.scroll-to-top:active {
+  transform: scale(1); /* Восстанавливаем размер при клике */
+}
+
+.arrow-icon {
+  display: inline-block;
+  line-height: 1;
+}
+
 @media (max-width: 1200px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .testimonial-card {
+    flex: 0 0 100%;
+  }
+
+  .slider-btn {
+    font-size: 1.2rem;
+    padding: 1px 6px;
+  }
+
   .application-container {
-    /* padding: 0 20px; */
   }
 
   .application-form {
@@ -620,88 +622,6 @@ h2 {
 
   .application-form h3 {
     font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .application-form {
-    width: 90%;
-    padding: 30px;
-  }
-  .form-group input {
-    width: 100%;
-    max-width: 550px;
-  }
-  .form-row {
-    flex-direction: column;
-  }
-
-  .form-group {
-    width: 100%;
-  }
-
-  .btn {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-
-  .application-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .application-form h3 {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .application-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .application-form {
-    width: 100%;
-    padding: 20px;
-    max-width: 300px;
-  }
-  .form-group input {
-    width: 100%;
-    max-width: 270px;
-  }
-  .application-form h3 {
-    font-size: 1.1rem;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  .form-group {
-    width: 100%;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
-  .photo-slider {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media (max-width: 1200px) {
-  header .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .project-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero h1 {
-    font-size: 3rem;
   }
 }
 
@@ -739,6 +659,67 @@ h2 {
   .section p {
     font-size: 1rem;
   }
+
+  .application-form {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .form-group input {
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .application-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .application-form h3 {
+    font-size: 1.2rem;
+  }
+
+  .testimonial-slider {
+    width: 100%;
+  }
+
+  .testimonial-card {
+    flex: 0 0 100%;
+  }
+
+  .testimonial-slider-container {
+    position: relative;
+  }
+
+  .slider-btn {
+    position: absolute;
+    bottom: 10px;
+    top: unset;
+    transform: translateY(0);
+    margin-top: 0;
+    font-size: 1.2rem;
+    padding: 1px 6px;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -768,5 +749,88 @@ h2 {
 
   .project-card img {
     height: 200px;
+  }
+
+  .application-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .application-form {
+    width: 100%;
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  .form-group input {
+    width: 100%;
+    max-width: 270px;
+  }
+
+  .application-form h3 {
+    font-size: 1.1rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .photo-slider {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-200%);
+  }
+
+  75% {
+    transform: translateX(-300%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
   }
 }
